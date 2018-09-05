@@ -3,7 +3,18 @@
 #include <stdlib.h>
 #include <math.h>
 
-void main()
+void ex5()
 {
+	int num1,copy,digitNum;
+	printf ("Enter number");
+	scanf ("d",&num1);
+	copy = num1;
+	while (num1 != 0)
+	{
+		num1 = num1 / 10;
+		digitNum++;
+	}
+	num1 = copy;
 
+	for (int i=0; i<
 }
