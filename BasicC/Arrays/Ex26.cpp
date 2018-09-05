@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-void main()
+void ex26()
 {
 	// Varriables
 	int series[n] {2,3,4,2,3,4,5,6,7};
