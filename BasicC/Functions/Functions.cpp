@@ -29,7 +29,7 @@ int randomNumberBetween(int num1, int num2)
 	return rand () % num1 + num2;
 }
 
-void main()
+void ex5()
 {
 	int num1,num2;
 
@@ -103,6 +103,48 @@ void ex14 ()
 	}
 }
 
+int max(int num1, int num2)
+{
+	if (num1 > num2)
+	{
+		return num1;
+	}
+	return num2;
+}
+
+int max3(int num1, int num2, int num3)
+{
+	int highest;
+	highest = max(num1, num2);
+	highest = max(highest, num3);
+	return highest;
+}
+
+void ex15()
+{
+	int result, avgResult1, avgResult2, avgResult3, avgResult = 0, maxResult;
+	for (int i = 1; i <= 3; i++)
+	{
+		for (int j = 1; j <= 3; j++)
+		{
+			printf("Enter result of player number %d", i);
+			scanf("%d", &result);
+			avgResult += result;
+		}
+		if (i == 1)
+			avgResult1 = avgResult;
+		else if (i == 2)
+			avgResult2 = avgResult;
+		else
+			avgResult3 = avgResult;
+	}
+	avgResult1 = avgResult1 / 3;
+	avgResult2 = avgResult2 / 3;
+	avgResult3 = avgResult3 / 3;
+	maxResult = max3(avgResult1, avgResult2, avgResult3);
+	// useless function was asked, I am not co oprating with this ex;
+}
+
 bool isDifferentDigits(int num)
 {
 	int copy, mone;
@@ -131,22 +173,19 @@ void ex16()
 {
 	int num, mone=0;
 	printf("Enter number");
-	scanf("%d", num);
+	scanf("%d", &num);
 	while (isDifferentDigits(num))
 	{
 		++mone;
 		printf("Enter number");
-		scanf("%d", num);
+		scanf("%d", &num);
 	}
 	printf("Your number (%d) was the chosen one! Only after %d numbers...", num, mone);
 }
 
-void ex22()
+void ex22(int num)
 {
-	int num, sumDigitsOfNum;
-
-	printf("Enter number");
-	scanf("%d", num);
+	int sumDigitsOfNum;
 
 	sumDigitsOfNum = sumDigits(num);
 
@@ -159,3 +198,76 @@ void ex22()
 	}
 }
 
+void findAllPlacesOfDigitInNum(int num, int digit)
+{
+	int mone = 1;
+	while (num != 0)
+	{
+		if (num % 10 == digit)
+		{
+			printf("%d", mone);
+		}
+		++mone;
+		num /= num;
+	}
+}
+
+void ex23()
+{
+	int num;
+
+	printf("Enter number");
+	scanf("%d", &num);
+
+	for (int i = 0; i < 10; i++)
+	{
+		printf("The digit %d is on the following places in the number: /n" , i);
+		findAllPlacesOfDigitInNum(num, i);
+	}
+}
+
+void changeGrade(int *grade, int units)
+{
+	if (units == 5)
+	{
+		*grade += 20;
+	}
+	else if (units == 4)
+	{
+		*grade += 10;
+	}
+}
+
+void ex29()
+{
+	int num, grade, units, avg;
+	printf("Enter number of tests");
+	scanf("%d", &num);
+	for (int i = 0; i < num; i++)
+	{
+		printf("Enter grade and untits number\n");
+		scanf("%d%d", &grade, &units);
+		changeGrade(&grade, units);
+		avg += grade;
+	}
+	avg = avg / num;
+	printf("The average is %d" , avg);
+}
+
+void ex38()
+{
+	int num, sum = 0;
+	double avg;
+	for (int i = 1; i < 20; i++)
+	{
+		printf("Enter number of students in hour %d", i);
+		scanf("%d", &num);
+		if (num > 10)
+		{
+			sum = sum + 700;
+			sum = sum + 5 * (num - 10);
+		}
+	}
+	avg = sum / 20;
+	printf("The average salary is %f", avg);
+}
