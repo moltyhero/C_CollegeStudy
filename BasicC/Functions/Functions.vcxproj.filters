@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="TODO.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="D:\OneDrive\מכללה\C\5פונקציות.pdf" />
   </ItemGroup>
   <ItemGroup>
