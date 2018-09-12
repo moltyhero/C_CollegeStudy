@@ -240,7 +240,7 @@ void changeGrade(int *grade, int units)
 
 void ex29()
 {
-	int num, grade, units, avg;
+	int num, grade, units, avg = 0;
 	printf("Enter number of tests");
 	scanf("%d", &num);
 	for (int i = 0; i < num; i++)

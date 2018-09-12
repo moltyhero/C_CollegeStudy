@@ -128,10 +128,6 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Ex27.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
