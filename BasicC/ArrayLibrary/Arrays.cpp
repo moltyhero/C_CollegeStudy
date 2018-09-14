@@ -62,7 +62,7 @@ int sumBetween(int arr[], int length, int place1, int place2)
 
 void newOnlyDevidedBy3Arr(int arr[], int length)
 {
-
+	
 }
 
 float avgNumbersHigherThan10(int arr[], int length)

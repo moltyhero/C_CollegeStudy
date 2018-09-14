@@ -18,12 +18,17 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BoardEx.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{C3A96710-5AE4-4072-8E76-E23D4189FF49}</ProjectGuid>
-    <RootNamespace>ArrayLibrary</RootNamespace>
+    <ProjectGuid>{25FA9392-7487-4727-BA95-C4AB0CD2157B}</ProjectGuid>
+    <RootNamespace>Matrix</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
-    <ProjectName>8ArrayLibrary</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -115,24 +120,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="Arrays.h" />
-    <ClInclude Include="Sudoku.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Arrays.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="Ex2.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="Sudoku.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
