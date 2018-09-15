@@ -179,10 +179,149 @@ void ex7()
 	printf("%d", place);
 }
 
+void ex9()
+{
+	String str, ZUGI, LO_ZUGI;
+	int i=0, place=0;
+	char chr;
+	printf("Enter character");
+	chr = getchar();
+	while (true)
+	{
+		str[i] = chr;
+		if (chr == '.' && str[i - 1] == '*')
+			break;
+		i++;
+		printf("Enter character");
+		chr = getchar();
+	}
+	for (int j = 0; j <= i; j+=2)
+	{
+		LO_ZUGI[place] = str[j];
+	}
+	for (int j = 1; j <= i; j += 2)
+	{
+		ZUGI[place] = str[j];
+	}
+}
+
+void ex10() //LOL
+{
+	
+}
+
+void ex11()
+{
+	String str1, str2, str3, helper;
+	char *place;
+	int len;
+	printf("Enter 3 strings");
+	scanf("%s%s%s", str1, str2, str3);
+	place = strstr(str1, str2);
+	if (place != NULL)
+	{
+		len = strlen(str2);
+		*place = *(place + len);
+		strcpy(helper, place);
+		*place = *(place - len);
+		strcpy(place, str3);
+		*place = *(place + strlen(str3));
+		strcpy(place, helper);
+		printf("%s", str1);
+	}
+}
+
+void ex12()
+{
+	String str;
+	char *place;
+	printf("Enter string\n");
+	scanf("%s", str);
+	for (int i = 0; i < strlen(str);)
+	{
+		if (str[i] == '*')
+		{
+			for (int j = i; j < strlen(str); j++)
+			{
+				*(str + j) = *(str + j + 1);
+			}
+		}
+		else i++;
+	}
+	printf("%s", str);
+}
+
+void ex13()
+{
+	String str;
+	int i = 0;
+	char chr;
+	while (true)
+	{
+		printf("Enter character");
+		chr = getchar();
+		str[i] = chr;
+		if (chr == '.' && str[i - 1] == '*')
+			break;
+		i++;
+		printf("Enter character");
+		chr = getchar();
+	}
+	for (int j = 0; j < i; j++)
+	{
+		if (str[j]=='*')
+		{
+			if (str[j + 1] == '*')
+			{
+				printf("*");
+				i++;
+			}
+			else if (str[j + 1] == ',')
+			{
+				printf("\n");
+			}
+			else printf("%c", str[j]);
+		}
+	}
+}
+
+void ex14()
+{
+	String str, num1, num2;
+	int number1, number2;
+	int place;
+	printf("Enter number without 0");
+	scanf("%s", str);
+	place = 0;
+	for (int i = 0; i < strlen(str)/2; i++)
+	{
+		num2[i] = str[place];
+		place += 2;
+	}
+	place = 1;
+	for (int i = 0; i < strlen(str) / 2; i++)
+	{
+		num1[i] = str[place];
+		place += 2;
+	}
+	number1 = atoi(num1);
+	number2 = atoi(num2);
+	printf("%d", number1 + number2);
+}
+
+void ex16()
+{
+	String str;
+	int num;
+	printf("Enter number");
+	scanf("%d", num);
+
+}
+
 void main()
 {
-	ex7();
+	ex12();
 
 	// Please stop so I can see what happend
-	scanf("%d"); scanf("%d");
+	scanf("%d");
 }
