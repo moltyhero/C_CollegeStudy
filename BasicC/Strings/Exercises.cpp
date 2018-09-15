@@ -149,12 +149,39 @@ void ex6()
 
 void ex7()
 {
+	int found = 0, place;
+	char str1[100];
+	char str2[3];
+	char *temp;
 
+	temp = str1;
+	if (NULL != strstr(temp, str2))
+	{
+		printf("-1");
+	}
+	while (!found)
+	{
+		temp++;
+		if (strstr(temp, str2) != NULL)
+		{
+			temp = strstr(str1, str2);
+		}
+		else found = 1;
+	}
+	temp--;
+	for (int i = 0; i < 100; i++)
+	{
+		if (*temp == str1[i])
+		{
+			place = i;
+		}
+	}
+	printf("%d", place);
 }
 
 void main()
 {
-	ex6();
+	ex7();
 
 	// Please stop so I can see what happend
 	scanf("%d"); scanf("%d");
