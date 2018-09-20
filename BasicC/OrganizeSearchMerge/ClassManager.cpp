@@ -67,7 +67,59 @@ int commonGrade(int grades[])
 	return maxNumber;
 }
 
+int commonGrade3(int grades1[], int grades2[], int grades3[])
+{
+	int i, maxNumber, maxCounter = 0;
+	int* gradesCounter = (int*)calloc(101, sizeof(int));
 
+	i = 0;
+	while (grades1[i] != -1)
+	{
+		gradesCounter[grades1[i]]++;
+		i++;
+	}
+	i = 0;
+	while (grades2[i] != -1)
+	{
+		gradesCounter[grades2[i]]++;
+		i++;
+	}
+	i = 0;
+	while (grades3[i] != -1)
+	{
+		gradesCounter[grades3[i]]++;
+		i++;
+	}
+	for (int j = 1; j < 100; j++)
+	{
+		if (gradesCounter[j] > maxCounter)
+		{
+			maxNumber = j;
+		}
+	}
+	return maxNumber;
+}
+
+int* above90Grades(int grades[])
+{
+	int i = 0, j=0;
+	int* above90 = (int*)malloc(sizeof(int));
+	if (!above90)
+	{
+		printf("Not enogth memory");
+		return 0;
+	}
+	while (grades[i] != -1)
+	{
+		if (grades[i] >= 90)
+		{
+			above90 = (int*)realloc(above90, ++j * sizeof(int));
+			above90[j-1] = grades[i];
+		}
+		i++;
+	}
+	return above90;
+}
 
 int main()
 {
