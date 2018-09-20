@@ -312,10 +312,20 @@ void ex14()
 void ex16()
 {
 	String str;
-	int num;
+	int num, i;
 	printf("Enter number");
 	scanf("%d", num);
+	while (num != 0)
+	{
+		str[i] = num % 10;
+		num = num / 10;
+	}
+	strrev(str);
+}
 
+void ex18()
+{
+	
 }
 
 void main()
