@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-#define n 256
+#define n 1024
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -219,9 +219,66 @@ void lastIndexOf()
 	}
 }
 
+void contains()
+{
+
+}
+
+void toLower()
+{
+	int i = 0;
+	String str;
+
+	printf("Please enter a string\n");
+	gets_s(str);
+
+	while (str[i] != NULL)
+	{
+		if (str[i] > 40 && str[i] < 91)
+		{
+			str[i] = str[i] + 32;
+		}
+		i++;
+	}
+
+	printf("%s", str);
+}
+
+void reverse()
+{
+
+}
+
 int main()
 {
-	lastIndexOf();
-	scanf("%d");
+	int option;
+	printf("Please enter option number");
+	scanf("%d", &option);
+	while (option) // The program end when option is 0
+	{
+		switch (option)
+		{
+		case 1:
+			replace();
+			break;
+		case 2:
+			lastIndexOf();
+			break;
+		case 3:
+			contains();
+			break;
+		case 4:
+			toLower();
+			break;
+		case 5:
+			reverse();
+			break;
+		case 6:
+			// Bavel;
+			break;
+		}
+		printf("Please enter option number");
+		scanf("%d", &option);
+	}
 	return 0;
 }
