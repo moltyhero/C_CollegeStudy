@@ -5,7 +5,7 @@
 #include <math.h>
 
 
-void main()
+void main2()
 {
 	int mat[n][n] = { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 };
 	// Varriables
