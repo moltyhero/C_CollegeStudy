@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{6C2090E2-CF37-48C3-B570-63A8CD54997A}</ProjectGuid>
-    <RootNamespace>Files</RootNamespace>
+    <ProjectGuid>{5274CE04-8C48-4A1E-A3BD-C1865A185C35}</ProjectGuid>
+    <RootNamespace>Recourse</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -115,8 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="FilesExample.cpp" />
-    <ClCompile Include="FilesSeek.cpp">
+    <ClCompile Include="C++ void method template.cpp">
       <SubType>
       </SubType>
     </ClCompile>

@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FilesExample.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FilesSeek.cpp">
+    <ClCompile Include="C++ void method template.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

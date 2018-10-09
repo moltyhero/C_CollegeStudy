@@ -62,5 +62,21 @@ void handleLowStudents()
 // Get a file of numbers, order them and print them
 void orderNumbers()
 {
+	int arrInt[] = { 2,5,2,7,4,9,4,7 };
+	int min, num;
+	FILE *originalFile, *tempFile, *EndFile;
+
+	originalFile = fopen("Numbers.DAT", "wb");
+	for (int i = 0; i < 8; i++)
+	{
+		fwrite(arrInt, sizeof(int), 1, originalFile);
+	}
+	fclose(originalFile);
+
+	originalFile = fopen("Numbers.DAT", "rb");
+	tempFile = fopen("Temp.DAT", "wb");
+	if (originalFile == NULL || tempFile == NULL)
+		exit(1);
+	fread(&num, sizeof(int), 1, originalFile);
 
 }
