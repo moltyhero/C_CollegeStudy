@@ -31,7 +31,7 @@ int main2()
 	return 0;
 }
 
-int main()
+int main3()
 {
 	//int x;
 	student arr[3] = { {"Yosi", 85}, {"Moshe", 90}, {"Yona", 60} };
@@ -56,7 +56,7 @@ int main()
 			stu.mark = 95;
 			fseek(fp, -(long)sizeof(student), SEEK_CUR);
 			fwrite(&stu, sizeof(student), 1, fp);
-			//fseek(fp, 0, SEEK_CUR); // Should be useless?
+			fseek(fp, 0, SEEK_CUR); // Should be useless?
 			b = 1;
 		}
 		fread(&stu, sizeof(student), 1, fp);
@@ -74,3 +74,5 @@ int main()
 
 	return 0;
 }
+
+

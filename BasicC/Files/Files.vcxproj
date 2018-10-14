@@ -116,6 +116,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FilesExample.cpp" />
+    <ClCompile Include="FilesExercices.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="FilesSeek.cpp">
       <SubType>
       </SubType>
