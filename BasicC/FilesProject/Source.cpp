@@ -7,6 +7,7 @@
 #include <math.h>
 #include <string.h>
 #include <time.h>
+#include <malloc.h>
 
 typedef struct
 {
@@ -22,29 +23,33 @@ typedef struct
 	Date *pDate;
 } Person;
 
-Person* addPerson(const char *names[MAX], const int dates[MAX][COLS], Person** personArr, int size, int serial) // Pressed 1
+void addPerson(const char *names[MAX], const int dates[MAX][COLS], Person** personArr, int size, int serial) // Pressed 1
 {
-	*personArr = (Person*)realloc(personArr, (1+size) *sizeof(Person));
+
+	*personArr = (Person*)realloc(*personArr, (size +1) * sizeof(Person));
 	Person temp;
 	temp.serial_num = size;
 	strcpy(temp.full_name, names[size]);
 	
-	Date date;
+	//Date date;
 	temp.serial_num = serial;
+	temp.pDate = (Date*)malloc(sizeof(Date));
 	temp.pDate->day = dates[size][0];
 	temp.pDate->month = dates[size][1];
 	temp.pDate->year = dates[size][2];
 
-	*personArr[size] = temp;
 
-	printf("The new added person is %s, %d\%d\%d", temp.full_name, temp.pDate->day, temp.pDate->month, temp.pDate->year);
+	(*personArr)[size] = temp;
+	printf("%d", (*personArr)[size].serial_num);
+
+	printf("The new added person is %s, %d/%d/%d\n", temp.full_name, temp.pDate->day, temp.pDate->month, temp.pDate->year);
 }
 
 void printArr(Person* personArr, int size)
 {
 	for (int i = 0; i < size; i++)
 	{
-		printf("Person number %d is %s, born in %d\%d\%d", personArr[i].serial_num, personArr[i].full_name, personArr[i].pDate->day, personArr[i].pDate->month, personArr[i].pDate->year);
+		printf("Person number %d is %s, born in %d\%d\%d \n", personArr[i].serial_num, personArr[i].full_name, personArr[i].pDate->day, personArr[i].pDate->month, personArr[i].pDate->year);
 	}
 }
 
@@ -80,7 +85,7 @@ void saveArrToFile(Person *personArr, const char *f_name, int size)
 	}
 	for (int i = 0; i < size; i++)
 	{
-		fprintf(file, "%d %s %d %d %d", personArr[i].serial_num, personArr[i].full_name, 
+		fprintf(file, "%d %s %d %d %d\n", personArr[i].serial_num, personArr[i].full_name, 
 				personArr[i].pDate->day, personArr[i].pDate->month, personArr[i].pDate->year);
 	}
 	
@@ -106,41 +111,50 @@ void main()
 	#pragma endregion
 
 	#pragma region Written code
-	int choice;
-	Person* personArr;
+	char choice;
+	Person* personArr = NULL;
 	int size = 0, currentSerial = 1;
 
-	scanf("%d", choice);
+	scanf("%c", &choice);
 
-	switch (choice)
+	while (choice !='E' || choice !='e')
 	{
-		case 1:
-			if ((size + 1) > MAX)
-			{
-				printf("No persons left to add");
-			}
-			else
-			{
-				addPerson(names, dates, &personArr, size, ++currentSerial);
-				size++;
-			}
-			break;
+		switch (choice)
+		{
+			case '1':
+				if ((size + 1) > MAX)
+				{
+					printf("No persons left to add");
+				}
+				else
+				{
+					addPerson(names, dates, &personArr, size, ++currentSerial);
+					size++;
+				}
+				break;
 
-		case 2:
-			printArr(personArr, size);
-			break;
+			case '2':
+				printArr(personArr, size);
+				break;
 
-		case 3:
-			qsort(personArr, MAX, sizeof(Person), checkLatestDate);
-			break;
+			case '3':
+				qsort(&personArr, MAX, sizeof(Person), checkLatestDate);
+				break;
 
-		case 4:
-			saveArrToFile(personArr, f_name, size);
+			case '4':
+				saveArrToFile(personArr, f_name, size);
+				break;
 
+			case '5':
+				//  Move everything from file to dynamic array, overriting it
+				break;
 
-		default:
-			break;
+			default:
+				break;
+		}
+		scanf("%c", &choice);
 	}
+	
 	#pragma endregion
 
 	
