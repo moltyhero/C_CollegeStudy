@@ -14,7 +14,7 @@ int stack_empty(stack s)
 
 int stack_full(stack s)
 {
-	return (s.top == STACK_MAX_SIZE);
+	return (s.top == STACK_MAX_SIZE-1);
 }
 
 void stack_push(stack * s, stack_item x)

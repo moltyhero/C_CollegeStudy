@@ -1,1 +1,6 @@
-2 Sasson_Sassoni 10 1 19883 Pooh 12 12 1948
+2 Sasson_Sassoni 10 1 1988
+3 Pooh 12 12 1948
+4 James_Bond 4 12 1970
+5 Elvis_is_Alive! 11 11 1890
+6 Shilgiya 11 11 1948
+7 Cleopatra 1 10 1213
