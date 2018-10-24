@@ -15,11 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stack.cpp">
+    <ClCompile Include="..\..\..\..\..\Downloads\DynamicStack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StackTest.cpp">
+    <ClCompile Include="..\..\..\..\..\Downloads\FirstStack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\Downloads\DynamicStack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

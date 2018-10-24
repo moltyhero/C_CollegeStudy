@@ -13,7 +13,7 @@ int findMax(stack s)
 			max = stack_top(s);
 		stack_pop(&s);
 	}
-	printf("Max is %d" , max);
+	printf("Max is %d", max);
 	return max;
 }
 
@@ -93,12 +93,13 @@ void sortStack(stack *s)
 
 }
 
-void main()
+
+void main2()
 {
 	// Varriables
 	int x;
 	stack s;
-	
+
 	// Code
 	stack_init(&s);
 	stack_push(&s, 9);
@@ -110,6 +111,7 @@ void main()
 	stack_print(&s);
 
 	findMax(s);
+
 
 	// Please stop so I can see what happend
 	scanf ("%d");

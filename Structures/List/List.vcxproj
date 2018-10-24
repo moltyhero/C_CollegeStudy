@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{A362B1B3-9E45-45A8-B8C7-744E8660C552}</ProjectGuid>
-    <RootNamespace>Stacks</RootNamespace>
+    <ProjectGuid>{99B4372B-BCDE-4380-927B-989CDE9965E1}</ProjectGuid>
+    <RootNamespace>List</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -115,7 +115,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="StackTest.cpp">
+    <ClInclude Include="stack.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="NodeTest.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="OPop.cpp">
       <SubType>
       </SubType>
     </ClCompile>

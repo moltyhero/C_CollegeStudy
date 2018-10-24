@@ -20,9 +20,10 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{A362B1B3-9E45-45A8-B8C7-744E8660C552}</ProjectGuid>
-    <RootNamespace>Stacks</RootNamespace>
+    <ProjectGuid>{E9E789DC-3A40-44CF-B313-7CE026859C2C}</ProjectGuid>
+    <RootNamespace>Dvir23</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <ProjectName>DvirStacks</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -115,11 +116,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="StackTest.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="stack.cpp" />
+    <ClCompile Include="..\..\..\..\..\Downloads\DynamicStack.cpp" />
+    <ClCompile Include="..\..\..\..\..\Downloads\FirstStack.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\Downloads\DynamicStack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

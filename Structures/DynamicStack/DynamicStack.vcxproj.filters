@@ -15,10 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stack.cpp">
+    <ClInclude Include="..\Stacks\stack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Stacks\stack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StackTest.cpp">
+    <ClCompile Include="..\Stacks\StackTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

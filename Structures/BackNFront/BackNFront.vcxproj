@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{A362B1B3-9E45-45A8-B8C7-744E8660C552}</ProjectGuid>
-    <RootNamespace>Stacks</RootNamespace>
+    <ProjectGuid>{ADEDE455-133E-404D-A375-3B5EDBFEF2D9}</ProjectGuid>
+    <RootNamespace>BackNFront</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -115,11 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="StackTest.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="stack.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

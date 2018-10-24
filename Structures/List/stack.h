@@ -1,10 +1,14 @@
-
 typedef int stack_item;
+
+struct node_type
+{
+	stack_item info;
+	struct node_type *next;
+};
 
 typedef struct
 {
-	int top;
-	stack_item *data;
+	struct node_type *top;
 } stack;
 
 void  stack_init(stack *s);

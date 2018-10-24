@@ -2,15 +2,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void  stack_init(stack *s) 
+void  stack_init(stack *s)
 {
-	s->top = -1;
-	s->data = NULL;
+	s->top = NULL;
 }
 
 int stack_empty(stack s)
 {
-	return (s.top == -1);
+	return (s.top == NULL);
 }
 
 int stack_full(stack s)
@@ -20,31 +19,31 @@ int stack_full(stack s)
 
 void stack_push(stack *s, stack_item x)
 {
-	stack_item *temp = (stack_item*)realloc(s->data, sizeof(stack_item) * (s->top + 2));
-	if (temp == NULL)
-		return;
-	else 
-	{
-		s->data = temp;
-		s->data[++s->top] = x;
-	}
+	struct node_type *temp = (node_type*)malloc(sizeof(struct node_type));
+	temp->info = x;
+	temp->next = s->top;
+	s->top = temp;
 }
 
 stack_item stack_pop(stack * s)
 {
 	if (!stack_empty(*s))
 	{
-		stack_item x = s->data[s->top--];
-		s->data = (stack_item*)realloc(s->data, sizeof(stack_item) * s->top + 1);
-		return x;
+		struct node_type *temp = s->top;
+		stack_item data = s->top->info;
+		s->top = temp->next;
+		free(temp);
+		return data;
 	}
 }
 
 stack_item stack_top(stack s)
 {
 	if (!stack_empty(s))
-		return s.data[s.top];
-	return 0;
+	{
+		stack_item data = (s.top)->info;
+		return data;
+	}
 }
 
 void stack_print(stack *s)
@@ -62,16 +61,16 @@ void stack_print(stack *s)
 
 	while (!stack_empty(tempPrint))
 	{
-		stack_push(s, stack_top(tempPrint));
+		stack_push(s, stack_pop(&tempPrint));
 	}
 
 	while (!stack_empty(helper))
 	{
-		stack_push(&tempPrint, stack_top(helper));
+		stack_push(&tempPrint, stack_pop(&helper));
 	}
-	
+
 	while (!stack_empty(tempPrint))
 	{
-		printf("%d \n" ,stack_pop(&tempPrint));
+		printf("%d \n", stack_pop(&tempPrint));
 	}
 }

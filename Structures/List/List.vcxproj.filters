@@ -15,10 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="stack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="stack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StackTest.cpp">
+    <ClCompile Include="NodeTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OPop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
