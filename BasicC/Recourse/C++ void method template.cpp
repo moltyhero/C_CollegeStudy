@@ -118,19 +118,89 @@ int dividedBy11(int num) // Ex11
 	return dividedBy11(sum);
 }
 
-int reverse(int num)
+int reverse(int num) // Ex8 (not working)
+
 {
 	int temp;
 	if (num < 10)
 	{
 		return num;
 	}
-	return 10 * (num % 10) + reverse(num/10);
+	return (num % 10) + reverse(num/10);
 }
+
+int numDigits(int num) // Ex9
+{
+	if (num > 10)
+	{
+		return 1 + numDigits(num / 10);
+	}
+	else return 1;
+}
+
+int maxDigit(int num) // Ex10
+{
+	if (num < 10) return num;
+	else return fmax(num % 10, maxDigit(num / 10));
+}
+
+int ex13(int num) // Ex13 (Not this way)
+{
+	if (num < 10)
+		return num;
+	return num % 10 + (-1) *(ex13(num / 10));
+}
+
+int sameDigits (int num1, int num2) // Ex14
+{
+	if (num1 == 0 || num2 == 0) return 0;
+	if (num1 % 10 == num2 % 10)
+	{
+		return 1 + sameDigits(num1 / 10, num2 / 10);
+
+	}
+	else return (sameDigits(num1 / 10, num2 / 10));
+}
+
+int unevenInLeft(int num) // Ex16
+{
+	if (num < 100)
+		return num;
+	else 
+	{
+		int temp = num % 10;
+		num = unevenInLeft(num / 10);
+
+		if (temp % 2 != 0)
+		{
+			int mone = 1, temp2 = num;
+			while (temp2%10%2==0)
+			{
+				mone*=10;
+				temp2 = temp2/ 10;
+			}
+			temp2 = num;
+			num = num / mone * 10 + temp * mone;
+			for (int i = 1; i < mone; i*=10)
+			{
+				num += temp2 % 10;
+				temp2 /= 10;
+			}
+		}
+		else
+		{
+			num = num*10 + temp;
+		}
+	}
+	return num;
+	
+} // Not working
+
+
 
 int main()
 {
-	printf("%d", reverse(123));
+	printf("%d", unevenInLeft(123456));
 
 	// Please stop so I can see what happend
 	scanf("%d");

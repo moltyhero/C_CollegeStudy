@@ -68,13 +68,14 @@ queue copy(queue q)
 	while (!queue_empty(q))
 	{
 		enqueue(&newQ, queue_top(q));
-		enqueue(&newQ, dequeue(&q));
+		enqueue(&temp, dequeue(&q));
 	}
 
 	while (!queue_empty(temp))
 	{
 		enqueue(&q, dequeue(&temp));
 	}
+	return newQ;
 }
 
 void queue_print(queue q)
