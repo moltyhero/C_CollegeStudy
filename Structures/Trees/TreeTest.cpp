@@ -109,7 +109,11 @@ void insertTree(tree_Ptr *t, int key)
 	else {
 		p = *t;
 		q = (tree_Ptr)malloc(sizeof(tree_node));
-		while (p != NULL && p->info != key) { q = p; p = (key < p->info) ? p->left : p->right; }
+		while (p != NULL && p->info != key) 
+		{ 
+			q = p;
+			p = (key < p->info) ? p->left : p->right; 
+		}
 		if (p == NULL)
 		{
 			p = (tree_Ptr)malloc(sizeof(tree_node));
@@ -125,10 +129,11 @@ void insertTree(tree_Ptr *t, int key)
 }
 
 // Build a binary search tree with random keys
-tree_Ptr buildTree()
+tree_Ptr buildTree(void)
 {
 	srand(time(NULL));
 	int randomNum = rand() % 100 + 1;
+
 	tree_Ptr t = NULL;
 	int n, i, key;
 	scanf("%d", &n);
@@ -216,7 +221,17 @@ void remove(tree_Ptr t, int v)
 		}
 		else // Has 2 childs
 		{
-
+			tree_Ptr w = temp;
+			w = w->right;
+			while (w->left!=NULL)
+			{
+				w = w->left;
+			}
+			int tempX;
+			tempX = w->info;
+			w->info = temp->info;
+			temp->info = tempX;
+			remove(temp, v);
 		}
 
 	}
@@ -224,14 +239,15 @@ void remove(tree_Ptr t, int v)
 
 int main()
 {
-	tree_Ptr T;
-	T = (tree_Ptr)malloc(sizeof(tree_node));
-	tree_init(T, 5);
-	setLeft(T, 3);
-	setRight(T, 2);
-	setLeft(T->left, 1);
-	byLevel(T, 1);
-	while (1);
+	tree_Ptr t = NULL;
+	t = buildTree();
 
+	inScan(t);
+
+	remove(t, t->right->info);
+	inScan(t);
+
+
+	scanf("%d");
 	return 1;
 }
