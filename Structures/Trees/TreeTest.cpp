@@ -240,6 +240,7 @@ void remove(tree_Ptr t, int v)
 int main()
 {
 	tree_Ptr t = NULL;
+	// forpush
 	t = buildTree();
 
 	inScan(t);
