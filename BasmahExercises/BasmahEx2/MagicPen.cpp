@@ -16,6 +16,7 @@ void AddText();
 void Update();
 void DeleteChars();
 void AddToFile();
+void PrintStr();
 
 
 //-----------------------------------------------------------------------------
