@@ -78,7 +78,7 @@ int main()
 			}
 		}
 	}
-	while (choice != 4);
+	while (choice != 5);
 
 	// Please stop so I can see what happend
 	scanf("%d");
@@ -217,7 +217,7 @@ void AddToFile()
 		exit(1);
 	}
 	
-	fscanf(fp, "%s", g_szMainString);
+	fprintf(fp, "%s", g_szMainString);
 
 	if (fclose(fp))
 	{
