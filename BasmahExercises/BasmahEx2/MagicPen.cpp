@@ -17,6 +17,7 @@ void Update();
 void DeleteChars();
 void AddToFile();
 void PrintStr();
+void PutFileIntoString();
 
 
 //-----------------------------------------------------------------------------
@@ -49,7 +50,9 @@ int main()
 		printf("1 Add\n");
 		printf("2 Update\n");
 		printf("3 Delete\n");
-		printf("4 Add to File\n");
+		printf("4 Print the string\n");
+		printf("5 Add to File\n");
+		printf("6 Get from File\n");
 
 		scanf("%d", &choice);
 		switch (choice)
@@ -71,7 +74,18 @@ int main()
 			}
 			case 4:
 			{
+				PrintStr();
+				break;
+			}
+			case 5:
+			{
 				AddToFile();
+				break;
+			}
+			case 6:
+			{
+				PutFileIntoString();
+				break;
 			}
 			default:
 			{
@@ -79,7 +93,7 @@ int main()
 			}
 		}
 	}
-	while (choice != 5);
+	while (choice <= 6);
 
 	// Please stop so I can see what happend
 	scanf("%d");
@@ -110,18 +124,20 @@ void AddText()
 	szNew = (char*)malloc((nLength+2)*sizeof(char));
 	printf("Enter the string\n");
 	scanf("%s", szNew);
-	strcat(szNew, " ");
+
+	nLength	= strlen(szNew);
 
 	if (g_szMainString== NULL)
 	{
-		g_szMainString = (char*)malloc(sizeof(char) * (nLength + 1));
+		g_szMainString = _strdup(szNew);
 	}
 	else
 	{
 		g_szMainString = (char*)realloc(g_szMainString, sizeof(char) *
 			(strlen(g_szMainString) + nLength + 1));
+		strcat(g_szMainString, szNew);
 	}
-	strcat(g_szMainString, szNew);
+	
 	free(szNew);
 
 }
@@ -152,12 +168,12 @@ void Update()
 	scanf("%d", &nCharsToUpdate);
 
 	szUpdated = (char*)malloc((nCharsToUpdate + 1) * sizeof(char));
-	printf("Enter the string");
+	printf("Enter the string\n");
 	scanf("%s", szUpdated);
 
-	for (int i = nLocation-1; i < nCharsToUpdate; i++)
+	for (int i = 0; i < nCharsToUpdate; i++)
 	{
-		g_szMainString[i] = szUpdated[i-nLocation+1];
+		g_szMainString[i+nLocation-1] = szUpdated[i];
 	}
 }
 
@@ -176,17 +192,14 @@ void DeleteChars()
 {
 	// Varriables definitions
 	int nCharsToDelete;
+	int nLength = strlen(g_szMainString);
 
 	// Code section
 	printf("Enter number of characters to delete\n");
 	scanf("%d", &nCharsToDelete);
 
-	g_szMainString = (char*)realloc(g_szMainString, strlen(g_szMainString) - nCharsToDelete);
-	if (g_szMainString[strlen(g_szMainString)] != '\0')
-	{
-		g_szMainString = (char*)realloc(g_szMainString, strlen(g_szMainString) + 1);
-		strcat(g_szMainString, "\0");
-	}
+	g_szMainString = (char*)realloc(g_szMainString, sizeof(char)*(strlen(g_szMainString) - nCharsToDelete)+1);
+	g_szMainString[nLength-nCharsToDelete] = 0;
 }
 
 //-----------------------------------------------------------------------------
@@ -211,7 +224,7 @@ void AddToFile()
 
 	// Code section
 
-	printf("Enter name of file to save the string into");
+	printf("Enter name of file to save the string into\n");
 	scanf("%s", szFileName);
 	if (!(fp = fopen(szFileName, "wt")))
 	{
@@ -225,4 +238,71 @@ void AddToFile()
 		exit(1);
 	}
 	free(g_szMainString);
+}
+
+//-----------------------------------------------------------------------------
+//								   Put File Into String
+//								  		---------
+//
+// General : The function gets the string within a file and put it into the 
+// global string
+//
+// Parameters: None
+//
+// Return Value : None
+//
+//-----------------------------------------------------------------------------
+void PutFileIntoString()
+{
+	// Files definitions
+	FILE *fp;
+	char cTemp;
+	int i = 0;
+
+	// Varriables definitions
+	char szFileName[20];
+
+	// Code section
+
+	printf("Enter name of file to get the string from\n");
+	scanf("%s", szFileName);
+	if (!(fp = fopen(szFileName, "rt")))
+	{
+		exit(1);
+	}
+
+	g_szMainString = NULL;
+	fscanf(fp, "%c", &cTemp);
+	
+
+	while (!feof(fp))
+	{
+		g_szMainString = (char*)realloc(g_szMainString, sizeof(char)*(i+1));
+		g_szMainString[i] = cTemp;
+		i++;
+		fscanf(fp, "%c", &cTemp);
+	}
+	g_szMainString[i] = 0;
+
+	if (fclose(fp))
+	{
+		exit(1);
+	}
+}
+
+//-----------------------------------------------------------------------------
+//								    Print String
+//								  	---------
+//
+// General : The function prints the global string
+// 
+//
+// Parameters: None
+//
+// Return Value : None
+//
+//-----------------------------------------------------------------------------
+void PrintStr()
+{
+	puts(g_szMainString);
 }
